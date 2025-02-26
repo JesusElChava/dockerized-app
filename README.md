@@ -1,62 +1,97 @@
-Clasificación de Imágenes con IA usando Streamlit y MySQL
+🚀 Clasificador de Imágenes con IA
 
-Este proyecto es una aplicación web que clasifica imágenes con un modelo de IA (MobileNetV2) y guarda los resultados en una base de datos MySQL. Todo corre en contenedores Docker gracias a Docker Compose.
-Estructura del proyecto:
+Este proyecto es una aplicación web que clasifica imágenes usando un modelo de Machine Learning (MobileNetV2) y almacena las predicciones en una base de datos MySQL. La aplicación se empaqueta en un contenedor Docker y se distribuye a través de Docker Hub para que cualquiera pueda ejecutarla fácilmente.
 
-├── app.py                 # Código principal de la aplicación
-├── Dockerfile             # Configuración para crear la imagen Docker
-├── docker-compose.yml     # Orquestación de servicios con Docker Compose
-└── README.md              # Documentación del proyecto
+🛠️ Tecnologías usadas:
 
-Cómo clonar y ejecutar la aplicación:
+Python 3.9
 
-    Clonar el repositorio:
+Streamlit (para la interfaz web)
 
-git clone https://github.com/JesusElChava/dockerized-app.git
+TensorFlow (modelo de clasificación de imágenes)
 
-    Entrar al directorio del proyecto:
+MySQL (base de datos para guardar predicciones)
 
-cd dockerized-app
+Docker & Docker Compose (contenedores)
 
-    Construir y levantar los contenedores:
+📂 Estructura del proyecto:
 
-sudo docker compose up --build
+.
+├── app.py                   # Código principal de la aplicación
+├── Dockerfile               # Instrucciones para construir la imagen Docker
+├── docker-compose.yml       # Configuración de los servicios Docker
+├── requirements.txt         # Librerías necesarias
+└── README.md                # Esta guía de instalación
 
-    Abrir la aplicación en el navegador:
-    http://localhost:8501
+🧩 Instalación local:
 
-Uso de la aplicación:
+Clonar el repositorio:
 
-    Subir una imagen: Selecciona un archivo JPG, PNG o JPEG.
-    Clasificación: La IA analizará la imagen y mostrará las categorías con su probabilidad.
-    Guardar en MySQL: La predicción se almacena con:
-        Nombre de la imagen
-        Categoría predicha
-        Confianza (%)
-        Fecha y hora
+git clone https://github.com/tu_usuario/tu_repositorio.git
+cd tu_repositorio
 
-Ver resultados en MySQL:
+Crear la imagen Docker:
 
-Accede a la base de datos desde el contenedor:
+docker build -t tu_usuario/clasificador:latest .
 
-sudo docker exec -it proyecto-db-1 mysql -u usuario -p
+Levantar los contenedores (aplicación y base de datos):
 
-(Usa la contraseña definida en tu docker-compose.yml)
+docker-compose up
 
-Consulta los resultados:
+Abrir la aplicación en el navegador:
+
+http://localhost:8501
+
+🐳 Distribución con Docker Hub:
+
+Iniciar sesión en Docker Hub:
+
+docker login
+
+Etiquetar la imagen:
+
+docker tag clasificador:latest tu_usuario/clasificador:latest
+
+Subir la imagen a Docker Hub:
+
+docker push tu_usuario/clasificador:latest
+
+Descargar y ejecutar la aplicación desde cualquier máquina con Docker:
+
+docker pull tu_usuario/clasificador:latest
+
+docker run -p 8501:8501 tu_usuario/clasificador:latest
+
+Acceder a la aplicación:
+
+http://localhost:8501
+
+🟩 Uso de la aplicación:
+
+Subir imagen: Haz clic en el botón para cargar una imagen.
+
+Clasificación: El modelo predice las clases más probables.
+
+Guardar resultados: Las predicciones se almacenan automáticamente en la base de datos MySQL.
+
+📘 Consultar predicciones en MySQL:
+
+Si quieres ver las predicciones almacenadas:
+
+Acceder a la base de datos dentro del contenedor:
+
+docker exec -it nombre_del_contenedor_mysql mysql -u usuario -p
+
+Seleccionar la base de datos:
 
 USE clasificacion;
+
+Ver las predicciones:
+
 SELECT * FROM predicciones;
 
-Detener los contenedores:
+🎯 Conclusión:
 
-Cuando termines, baja los contenedores con:
-
-sudo docker compose down
-
-Conclusión:
-
-Este proyecto te permite clasificar imágenes con IA en tiempo real y guardar los resultados en MySQL. Todo encapsulado en Docker para facilitar su despliegue.
-
+Con estos pasos, tu aplicación queda lista para ser ejecutada en cualquier máquina o compartida globalmente a través de Docker Hub. 🚀
 
 
