@@ -16,7 +16,8 @@ Estructura del proyecto
 Entrar a la ubicación del Docker Compose
 
     Clonar el repositorio:
-    
+   
+https://github.com/JesusElChava/dockerized-app.git
 cd <NOMBRE_DEL_PROYECTO_O_CARPETA>
 
 Construir y levantar los contenedores:
