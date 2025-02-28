@@ -1,8 +1,10 @@
-🚀 Clasificador de Imágenes con IA
+Clasificación de Imágenes con IA usando Docker y MySQL
 
-Este proyecto es una aplicación web que clasifica imágenes usando un modelo de Machine Learning (MobileNetV2) y almacena las predicciones en una base de datos MySQL. La aplicación se empaqueta en un contenedor Docker y se distribuye a través de Docker Hub para que cualquiera pueda ejecutarla fácilmente.
+Introducción
 
-🛠️ Tecnologías usadas:
+Este proyecto es una aplicación web que permite clasificar imágenes utilizando un modelo de IA preentrenado (MobileNetV2). La aplicación está desarrollada con Streamlit y se ejecuta en un contenedor Docker, mientras que las predicciones se almacenan en una base de datos MySQL en otro contenedor.
+
+Tecnologías usadas:
 
 Python 3.9
 
@@ -14,7 +16,7 @@ MySQL (base de datos para guardar predicciones)
 
 Docker & Docker Compose (contenedores)
 
-📂 Estructura del proyecto:
+Estructura del proyecto:
 
 .
 ├── app.py                   # Código principal de la aplicación
@@ -23,50 +25,36 @@ Docker & Docker Compose (contenedores)
 ├── requirements.txt         # Librerías necesarias
 └── README.md                # Esta guía de instalación
 
-🧩 Instalación local:
+Instalación local:
 
-Clonar el repositorio:
+Cómo clonar y ejecutar el proyecto
 
-git clone https://github.com/tu_usuario/tu_repositorio.git
-cd tu_repositorio
+Si no tienes los archivos localmente, puedes clonarlos desde GitHub:
 
-Crear la imagen Docker:
-
-docker build -t tu_usuario/clasificador:latest .
-
-Levantar los contenedores (aplicación y base de datos):
-
-docker-compose up
+Clonar:
+  git clone <URL_DEL_REPOSITORIO> (https://github.com/JesusElChava/dockerized-app.git)
+Entrar al directorio:
+  cd proyecto
+Ejecutar con compose:
+  docker-compose up --build
 
 Abrir la aplicación en el navegador:
 
 http://localhost:8501
 
-🐳 Distribución con Docker Hub:
+Crear la imagen Docker:
 
-Iniciar sesión en Docker Hub:
+docker pull jesusjesus15/clasificador:latest
 
-docker login
+Correr imagen descargada:
 
-Etiquetar la imagen:
+docker run -d --name mi_clasificador jesusjesus15/clasificador:latest
 
-docker tag clasificador:latest tu_usuario/clasificador:latest
-
-Subir la imagen a Docker Hub:
-
-docker push tu_usuario/clasificador:latest
-
-Descargar y ejecutar la aplicación desde cualquier máquina con Docker:
-
-docker pull tu_usuario/clasificador:latest
-
-docker run -p 8501:8501 tu_usuario/clasificador:latest
-
-Acceder a la aplicación:
+Abrir la aplicación en el navegador:
 
 http://localhost:8501
 
-🟩 Uso de la aplicación:
+Uso de la aplicación:
 
 Subir imagen: Haz clic en el botón para cargar una imagen.
 
@@ -74,7 +62,7 @@ Clasificación: El modelo predice las clases más probables.
 
 Guardar resultados: Las predicciones se almacenan automáticamente en la base de datos MySQL.
 
-📘 Consultar predicciones en MySQL:
+Consultar predicciones en MySQL:
 
 Si quieres ver las predicciones almacenadas:
 
@@ -90,8 +78,8 @@ Ver las predicciones:
 
 SELECT * FROM predicciones;
 
-🎯 Conclusión:
+Conclusión:
 
-Con estos pasos, tu aplicación queda lista para ser ejecutada en cualquier máquina o compartida globalmente a través de Docker Hub. 🚀
+Con estos pasos, tu aplicación queda lista para ser ejecutada en cualquier máquina o compartida globalmente a través de Docker Hub. 
 
 
